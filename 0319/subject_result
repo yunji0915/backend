@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 점수 출력</title>
+</head>
+<body>
+    <h2>학생 점수 결과</h2>
+    <%
+        // GET 방식으로 전달된 점수 가져오기
+        String koreanStr = request.getParameter("kor");
+        String englishStr = request.getParameter("eng");
+        String mathStr = request.getParameter("math");
+
+        // 문자열을 정수로 변환
+        int korean = Integer.parseInt(koreanStr);
+        int english = Integer.parseInt(englishStr);
+        int math = Integer.parseInt(mathStr);
+
+        // 총점과 평균 계산
+        int total = korean + english + math;
+        float average = total / 3.0f;
+
+        // 평균을 소수점 2자리로 출력
+        String averageStr = String.format("%.2f", average);
+    %>
+
+    <p>국어 점수: <%= korean %></p>
+    <p>영어 점수: <%= english %></p>
+    <p>수학 점수: <%= math %></p>
+    <p>총점: <%= total %></p>
+    <p>평균: <%= averageStr %></p>
+</body>
+</html>
