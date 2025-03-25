@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가입 결과</title>
+</head>
+<body>
+<%
+	request.setCharacterEncoding("UTF-8");  // 반드시 form보다 먼저 실행됨
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	String gender = request.getParameter("gender");
+	String route = request.getParameter("route");
+	String[] region = request.getParameterValues("region");
+	String memo = request.getParameter("memo");
+	
+%>
+
+<div class="result">
+		아이디 : <%=id %><br>
+		비밀번호 : <%=pw %><br>	
+    성별: <strong><%=gender %></strong><br><br>
+    가입경로: <strong><%=route %></strong><br><br>
+    주소지:<br>
+    <ul>
+    <%
+        if (region != null) {
+            for (String r : region) {
+    %>
+        <li><%=r %></li>
+    <%
+            }
+        } else {
+    %>
+        <li>선택된 지역 없음</li>
+    <%
+        }
+    %>
+    </ul>
+    메모 내용:<br>
+    <textarea readonly style="width: 350px; height: 100px;"><%=memo %></textarea>
+</div>
+
+
+
+
+</body>
+</html>
