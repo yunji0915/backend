@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 확인</title>
+</head>
+<body>
+    <h2>작성된 게시글</h2>
+    <%
+    		
+   			request.setCharacterEncoding("UTF-8");//한글이 꺠지는 경우 필요한 코드
+        // 폼에서 전달된 데이터 가져오기
+        String title = request.getParameter("title");
+        String author = request.getParameter("author");
+        String content = request.getParameter("content");
+        String category = request.getParameter("category");
+
+        // 출력
+        out.println("<p><strong>제목:</strong> " + title + "</p>");
+        out.println("<p><strong>작성자:</strong> " + author + "</p>");
+        out.println("<p><strong>내용:</strong><br>" + content + "</p>");
+        out.println("<p><strong>카테고리:</strong> " + category + "</p>");
+    %>
+</body>
+</html>
