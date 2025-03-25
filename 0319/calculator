@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 계산기</title>
+</head>
+<body>
+    <h2>간단한 계산기</h2>
+    <form action="calculator_result.jsp" method="post">
+        x: <input type="number" name="x" required><br>
+        y: <input type="number" name="y" required><br>
+        <br>
+        <button type="submit" name="operator" value="+">+</button>
+        <button type="submit" name="operator" value="-">-</button>
+        <button type="submit" name="operator" value="*">*</button>
+        <button type="submit" name="operator" value="/">/</button>
+    </form>
+</body>
+</html>
