@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>계산 결과</title>
+</head>
+<body>
+    <h2>계산 결과</h2>
+
+    <%
+        // 입력값 가져오기
+        String xStr = request.getParameter("x");
+        String yStr = request.getParameter("y");
+        String operator = request.getParameter("operator");
+
+        try {
+            int x = Integer.parseInt(xStr);
+            int y = Integer.parseInt(yStr);
+            double result = 0;
+            boolean valid = true;
+
+            switch (operator) {
+                case "+":
+                    result = x + y;
+                    break;
+                case "-":
+                    result = x - y;
+                    break;
+                case "*":
+                    result = x * y;
+                    break;
+                case "/":
+                    if (y == 0) {
+                        valid = false;
+                    } else {
+                        result = (double) x / y; // 실수 연산을 위해 형 변환
+                    }
+                    break;
+                default:
+                    valid = false;
+            }
+
+            if (valid) {
+    %>
+                <p>결과: <%= result %></p>
+    <%
+            } else {
+    %>
+                <p style="color: red;">나눗셈 불가능. 0으로 나눌 수 없습니다.</p>
+    <%
+            }
+        } catch (NumberFormatException e) {
+    %>
+            <p style="color: red;">잘못된 입력입니다.</p>
+    <%
+        }
+    %>
+
+    <br>
+    <a href="calculator.jsp">다시 계산하기</a>
+</body>
+</html>
