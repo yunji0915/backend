@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 폼</title>
+</head>
+<body>
+<form action="test04.jsp" method="post">
+		아이디: <input type="text" name= "id"><br>
+		비밀번호: <input type="text" name= "pw"><br>
+		<!-- 성별 선택 -->
+		<label>성별:</label> <input type="radio" name="gender" value="남"> 남
+				 								<input type="radio" name="gender" value="여"> 여	 <br>
+		<!-- 가입 경로 -->
+		<label>가입경로:</label>  <select name="route">
+        <option value="웹검색">웹검색</option>
+        <option value="사이트">사이트</option>
+    </select>
+    <br>
+    
+    <!-- 주소지 -->
+    <label>주소지:</label>
+    <select name="region"  size="5" multiple>
+        <option value="서울">서울</option>
+        <option value="경기">경기</option>
+        <option value="인천">인천</option>
+        <option value="밀양">밀양</option>
+        <option value="기타">기타</option>
+    </select>
+    <br>
+    
+     <!-- 메모 -->
+    <label>메모:</label><br>
+    <textarea name="memo" placeholder="메모를 입력하세요..."></textarea>
+    <br><br>
+    
+     <!-- 가입 버튼 -->
+    <input type="submit" value="가입">
+	</form>
+
+</body>
+</html>
